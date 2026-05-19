@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAR ROOM MFS — Portfolio TEDEFO GUY RICHARD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080C14;
+      --bg2: #0C1120;
+      --bg3: #0D1526;
+      --gold: #F59E0B;
+      --gold2: #FCD34D;
+      --blue: #3B82F6;
+      --green: #10B981;
+      --red: #EF4444;
+      --orange: #F97316;
+      --purple: #8B5CF6;
+      --text: #E2E8F0;
+      --muted: #64748B;
+      --border: rgba(245,158,11,0.15);
+      --card-bg: linear-gradient(135deg, #0D1526, #0C1120);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV FLOTTANTE ── */
+    nav {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 1000;
+      width: calc(100% - 4rem); max-width: 1100px;
+      background: rgba(13,21,38,0.96);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(245,158,11,0.35);
+      border-radius: 16px;
+      padding: 0 1.8rem;
+      box-shadow: 0 4px 32px rgba(245,158,11,0.12), 0 0 0 1px rgba(245,158,11,0.06);
+    }
+    /* espace pour que le hero ne soit pas caché sous la nav fixe */
+    body { padding-top: 88px; }
+    .nav-inner {
+      max-width: 100%; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 800; letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
+    .nav-links a {
+      color: #94A3B8; text-decoration: none; font-size: 0.8rem;
+      font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 0.45rem 0.9rem; border-radius: 8px;
+      transition: all .2s;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+      background: rgba(245,158,11,0.1);
+    }
+    .nav-links .nav-live a {
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #fff !important; font-weight: 700;
+      box-shadow: 0 2px 12px rgba(16,185,129,0.3);
+      letter-spacing: 0.5px;
+    }
+    .nav-links .nav-live a:hover {
+      background: linear-gradient(135deg, #059669, #047857) !important;
+      box-shadow: 0 4px 18px rgba(16,185,129,0.45);
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,158,11,0.07) 0%, transparent 70%);
+      pointer-events: none; /* ne bloque pas les clics sur les boutons */
+      z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 50px; padding: 5px 16px;
+      font-size: 0.75rem; font-weight: 600; color: var(--gold);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800; line-height: 1.15;
+      background: linear-gradient(135deg, #fff 30%, var(--gold2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 1.2rem;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: #94A3B8;
+      max-width: 680px; margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-author {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.3rem; margin-bottom: 2rem;
+    }
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--gold);
+    }
+    .hero-email { font-size: 0.9rem; color: var(--muted); }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 0.75rem 2rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.9rem; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: all .25s;
+    }
+    .btn-gold {
+      background: var(--gold); color: #000;
+      box-shadow: 0 4px 20px rgba(245,158,11,.3);
+    }
+    .btn-gold:hover { background: var(--gold2); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1.5px solid rgba(245,158,11,.4); color: var(--gold);
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(245,158,11,.08); transform: translateY(-2px); }
+    .btn-live {
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(16,185,129,.3);
+    }
+    .btn-live:hover { background: linear-gradient(135deg, #059669, #047857); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(16,185,129,.4); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 5rem 0; }
+    .section-head { text-align: center; margin-bottom: 3.5rem; }
+    .section-head h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem; font-weight: 700;
+      background: linear-gradient(90deg, #fff 0%, var(--gold2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+    }
+    .section-head p { color: var(--muted); font-size: 1rem; max-width: 560px; margin: 0 auto; }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .card:hover {
+      border-color: rgba(245,158,11,.35);
+      box-shadow: 0 0 30px rgba(245,158,11,.06);
+    }
+
+    /* ── GRID HELPERS ── */
+    .g2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; }
+    .g3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; }
+    .g4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.2rem; }
+
+    /* ── KPI STRIP ── */
+    .kpi-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 1.2rem; }
+    .kpi {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+      text-align: center;
+    }
+    .kpi-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem; font-weight: 800;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .kpi-lbl { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── PIPELINE ── */
+    .pipeline {
+      display: flex; flex-wrap: wrap; gap: 0;
+      align-items: stretch;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    .pipe-step {
+      flex: 1; min-width: 140px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .pipe-step:last-child { border-right: none; }
+    .pipe-step::after {
+      content: '→';
+      position: absolute; right: -14px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold); font-size: 1.2rem; z-index: 2;
+    }
+    .pipe-step:last-child::after { display: none; }
+    .pipe-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(245,158,11,0.15);
+      border: 1.5px solid rgba(245,158,11,0.4);
+      color: var(--gold); font-weight: 700; font-size: 1rem;
+      margin: 0 auto 1rem;
+    }
+    .pipe-title { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.4rem; }
+    .pipe-desc { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── MODULE CARDS ── */
+    .mod-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.2rem;
+    }
+    .mod-gold  { background: rgba(245,158,11,.12); }
+    .mod-blue  { background: rgba(59,130,246,.12); }
+    .mod-green { background: rgba(16,185,129,.12); }
+    .mod-red   { background: rgba(239,68,68,.12); }
+    .mod-purple{ background: rgba(139,92,246,.12); }
+    .mod-orange{ background: rgba(249,115,22,.12); }
+    .mod-teal  { background: rgba(20,184,166,.12); }
+    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text); }
+    .card p, .card li { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
+    .card ul { padding-left: 1.1rem; margin-top: 0.5rem; }
+
+    /* ── TAG ── */
+    .tag {
+      display: inline-block;
+      background: rgba(245,158,11,.1);
+      border: 1px solid rgba(245,158,11,.25);
+      color: var(--gold); font-size: 0.72rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 4px;
+      margin: 2px 2px 0 0; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .tag-blue  { background: rgba(59,130,246,.1); border-color: rgba(59,130,246,.25); color: #93C5FD; }
+    .tag-green { background: rgba(16,185,129,.1); border-color: rgba(16,185,129,.25); color: #6EE7B7; }
+    .tag-red   { background: rgba(239,68,68,.1);  border-color: rgba(239,68,68,.25);  color: #FCA5A5; }
+    .tag-purple{ background: rgba(139,92,246,.1); border-color: rgba(139,92,246,.25); color: #C4B5FD; }
+
+
+    /* ── COMMAND TABLE ── */
+    .cmd-table {
+      width: 100%; border-collapse: collapse; font-size: 0.88rem;
+      margin-top: 1.5rem;
+    }
+    .cmd-table th {
+      padding: 0.75rem 1rem; text-align: left;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted); background: rgba(255,255,255,.02);
+      border-bottom: 1px solid var(--border);
+    }
+    .cmd-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      vertical-align: top; color: #94A3B8;
+    }
+    .cmd-table tr:last-child td { border-bottom: none; }
+    .cmd-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83rem; font-weight: 600;
+      color: var(--gold); white-space: nowrap;
+    }
+
+    /* ── DIVIDER ── */
+    .divider { height: 1px; background: var(--border); margin: 0 2rem; }
+
+    /* ── TECH PILL ── */
+    .tech-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+    .tech-pill {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px; padding: 0.5rem 1rem;
+      font-size: 0.85rem; font-weight: 500; color: var(--text);
+      transition: border-color .2s;
+    }
+    .tech-pill:hover { border-color: rgba(245,158,11,.3); }
+    .tech-pill span { color: var(--muted); font-size: 0.75rem; }
+
+    /* ── TIMELINE ── */
+    .tl { position: relative; padding-left: 2rem; }
+    .tl::before {
+      content: ''; position: absolute; left: 7px; top: 8px;
+      width: 2px; height: calc(100% - 16px);
+      background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+    }
+    .tl-item { position: relative; padding-bottom: 2rem; }
+    .tl-item::before {
+      content: ''; position: absolute; left: -2rem; top: 5px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--gold); border: 2px solid var(--bg);
+      box-shadow: 0 0 8px rgba(245,158,11,.4);
+    }
+    .tl-date { font-size: 0.75rem; color: var(--gold); font-weight: 600; margin-bottom: 0.3rem; letter-spacing: 1px; text-transform: uppercase; }
+    .tl-title { font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 0.4rem; }
+    .tl-body { font-size: 0.87rem; color: var(--muted); }
+
+    /* ── ALERT DEMO ── */
+    .alert-demo {
+      background: #0A0E1A;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 10px; padding: 1.4rem 1.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem; line-height: 1.9; color: #CBD5E1;
+      margin-top: 1rem; white-space: pre;
+    }
+    .wa-sender { color: #93C5FD; font-weight: 600; }
+    .wa-bot    { color: var(--gold); font-weight: 600; }
+    .wa-green  { color: #6EE7B7; }
+    .wa-red    { color: #FCA5A5; }
+    .wa-orange { color: #FDB57A; }
+    .wa-bold   { color: #fff; font-weight: 600; }
+
+    /* ── RESULT STRIP ── */
+    .result-card {
+      background: linear-gradient(135deg, rgba(245,158,11,.08) 0%, transparent 100%);
+      border: 1px solid rgba(245,158,11,.2);
+      border-radius: 12px; padding: 1.8rem;
+      text-align: center;
+    }
+    .result-val { font-size: 2.5rem; font-weight: 900; color: var(--gold); font-family: 'Space Grotesk',sans-serif; }
+    .result-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 0.5rem;
+    }
+    .footer-email { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .footer-copy { font-size: 0.8rem; color: #334155; }
+
+    /* ── SECTION ACCENT ── */
+    .alt-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* ── SCROLL OFFSET (nav fixe = 16px top + 60px hauteur + marge) ── */
+    section[id], div[id] {
+      scroll-margin-top: 96px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links { display: none; }
+      .pipe-step::after { display: none; }
+      .pipe-step { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .revealed { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">⚡ WAR ROOM MFS</div>
+    <ul class="nav-links">
+      <li><a href="#apercu">Aperçu</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#whatsapp">WhatsApp</a></li>
+      <li><a href="#tech">Stack</a></li>
+      <li><a href="#resultats">Résultats</a></li>
+      <li class="nav-live"><a href="https://huggingface.co/spaces/mfspro16/stock-mfs-dashboard" target="_blank">🚀 Dashboard Live</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Projet Data Engineering · Microfinance · Cameroun</div>
+  <h1>WAR ROOM MFS<br/>Système Intelligent de Gestion<br/>de Float Mobile Money</h1>
+  <p class="hero-sub">
+    Pipeline complet d'automatisation pour le suivi temps réel du float des agents Mobile Money :
+    réconciliation automatique, dashboard analytique, bot WhatsApp interactif et
+    moteur prédictif de ruptures de stock.
+  </p>
+  <div class="hero-author">
+    <div class="hero-name">TEDEFO GUY RICHARD</div>
+    <div class="hero-email">richardtedefo3@gmail.com</div>
+  </div>
+  <div class="hero-btns">
+    <a href="#architecture" class="btn btn-gold">Voir l'Architecture</a>
+    <a href="#whatsapp" class="btn btn-outline">Commandes WhatsApp</a>
+    <a href="https://huggingface.co/spaces/mfspro16/stock-mfs-dashboard" target="_blank" class="btn btn-live">🚀 Ouvrir le Dashboard Live</a>
+  </div>
+</section>
+
+<!-- KPI STRIP -->
+<div class="container" style="padding-top:3rem; padding-bottom:3rem;">
+  <div class="kpi-strip reveal">
+    <div class="kpi"><div class="kpi-val">529+</div><div class="kpi-lbl">Agents MFS suivis</div></div>
+    <div class="kpi"><div class="kpi-val">5</div><div class="kpi-lbl">Modules Python</div></div>
+    <div class="kpi"><div class="kpi-val">5</div><div class="kpi-lbl">Commandes bot WA</div></div>
+    <div class="kpi"><div class="kpi-val">&lt;30s</div><div class="kpi-lbl">Délai alerte WhatsApp</div></div>
+    <div class="kpi"><div class="kpi-val">24/7</div><div class="kpi-lbl">Sync Hugging Face</div></div>
+    <div class="kpi"><div class="kpi-val">100%</div><div class="kpi-lbl">Automatisation</div></div>
+  </div>
+</div>
+
+<!-- APERÇU -->
+<div class="divider"></div>
+<section id="apercu">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Aperçu du Projet</h2>
+      <p>Contexte opérationnel et problématique résolue</p>
+    </div>
+    <div class="g2 reveal">
+      <div class="card">
+        <div class="mod-icon mod-red" style="font-size:1.6rem">🔴</div>
+        <h3>Problème</h3>
+        <p>
+          Dans un réseau de plus de 500 agents Mobile Money répartis sur plusieurs routes,
+          les ruptures de float (stock épuisé) se produisent silencieusement. Les équipes
+          terrain n'ont aucun outil pour détecter un agent en difficulté avant que le client
+          soit refusé. Le suivi était 100% manuel (fichiers Excel envoyés par WhatsApp),
+          entraînant des retards de plusieurs heures et une perte de revenus.
+        </p>
+      </div>
+      <div class="card">
+        <div class="mod-icon mod-green" style="font-size:1.6rem">✅</div>
+        <h3>Solution</h3>
+        <p>
+          Système automatisé en Python qui :
+        </p>
+        <ul>
+          <li>Collecte les fichiers de transactions CSV déposés par le système bancaire</li>
+          <li>Réconcilie chaque agent avec sa cible OOS (niveau de rupture) depuis le fichier OOS1.xlsx</li>
+          <li>Calcule le taux de rupture, le gap financier et les jours de couverture stock</li>
+          <li>Alerte l'équipe WhatsApp en temps réel avec un diagnostic complet</li>
+          <li>Publie tout sur un dashboard Streamlit hébergé sur Hugging Face Spaces</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<div class="alt-section">
+<section id="architecture">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Architecture Technique</h2>
+      <p>Pipeline de traitement de bout en bout</p>
+    </div>
+
+    <!-- Pipeline -->
+    <div class="pipeline reveal">
+      <div class="pipe-step">
+        <div class="pipe-num">1</div>
+        <div class="pipe-title">Dépôt CSV</div>
+        <div class="pipe-desc">Fichiers <code>Transactions_&lt;MSISDN&gt;.csv</code> copiés dans <code>Listing_Test_MFS/</code></div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">2</div>
+        <div class="pipe-title">transaction_processor.py</div>
+        <div class="pipe-desc">Parse le CSV, extrait Date / Balance / Nom, consolide dans <code>summary.xlsx</code></div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">3</div>
+        <div class="pipe-title">reconciliation_global.py</div>
+        <div class="pipe-desc">Join summary ↔ OOS1.xlsx, calcule Valeur Calculée, Jours de Stock, exporte <code>reconciliation.csv</code></div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">4</div>
+        <div class="pipe-title">hf_sync_manager.py</div>
+        <div class="pipe-desc">Upload vers Hugging Face Spaces (filtrage horaire prioritaires en journée)</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">5</div>
+        <div class="pipe-title">agent_mfs.py</div>
+        <div class="pipe-desc">Génère le rapport WhatsApp : ruptures, routes critiques, top HVC, prédictions</div>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">6</div>
+        <div class="pipe-title">whatsapp_sender.py</div>
+        <div class="pipe-desc">Envoie le message via Playwright (WhatsApp Web) dans le groupe cible</div>
+      </div>
+    </div>
+
+    <!-- Composants -->
+    <div style="margin-top:3rem;" class="g3 reveal">
+      <div class="card">
+        <h3>🗂️ Flux de Données</h3>
+        <ul>
+          <li><strong>Entrée :</strong> CSV transactions par agent (MSISDN)</li>
+          <li><strong>Référentiel :</strong> OOS1.xlsx (cibles, routes, segments, priorité)</li>
+          <li><strong>Sortie :</strong> reconciliation.csv (529+ lignes)</li>
+          <li><strong>Historique :</strong> balance_history.csv, cycle_history.csv, pos_oos_history.csv</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>⚙️ Orchestration</h3>
+        <ul>
+          <li><strong>auto_sync.py :</strong> boucle infinie, surveille le dossier source</li>
+          <li><strong>Batch size :</strong> push HF tous les 500 fichiers traités</li>
+          <li><strong>Idle timeout :</strong> rapport WhatsApp 30s après le dernier fichier</li>
+          <li><strong>Start :</strong> <code>start_auto_sync.bat</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>☁️ Hébergement</h3>
+        <ul>
+          <li><strong>Dashboard :</strong> Hugging Face Spaces (Streamlit)</li>
+          <li><strong>Push :</strong> API huggingface_hub (pas de git brut)</li>
+          <li><strong>Filtrage :</strong> reconciliation 331 prioritaires (05h–17h Cameroun)</li>
+          <li><strong>Complet :</strong> tous agents envoyés en soirée/nuit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- MODULES -->
+<section id="modules">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Modules du Système</h2>
+      <p>Détail de chaque composant Python</p>
+    </div>
+
+    <div class="g2 reveal">
+
+      <!-- transaction_processor -->
+      <div class="card">
+        <div class="mod-icon mod-blue">📥</div>
+        <h3>transaction_processor.py</h3>
+        <p>Collecte et normalisation des données de transaction.</p>
+        <ul>
+          <li>Lit les fichiers <code>Transactions_MSISDN.csv</code> déposés automatiquement</li>
+          <li>Extrait : Date, Balance, Nom (From/To selon le numéro détecté)</li>
+          <li>Double encodage (UTF-8 puis Latin-1 en fallback)</li>
+          <li>Consolidation incrémentale dans <code>summary.xlsx</code> via openpyxl</li>
+          <li>Gestion des doublons : mise à jour de la ligne existante si MSISDN déjà présent</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag">Python</span><span class="tag">openpyxl</span><span class="tag">CSV</span>
+        </div>
+      </div>
+
+      <!-- reconciliation_global -->
+      <div class="card">
+        <div class="mod-icon mod-gold">🔗</div>
+        <h3>reconciliation_global.py</h3>
+        <p>Cœur analytique — réconciliation et calcul des KPIs.</p>
+        <ul>
+          <li><strong>Jointure :</strong> summary.xlsx ↔ OOS1.xlsx sur MSISDN (inner join)</li>
+          <li><strong>OOS Rename Map :</strong> normalise les variantes de colonnes (priorité/priorite/PRIORITE…)</li>
+          <li><strong>Dédoublonnage :</strong> groupby MSISDN → mean() pour numériques, first() pour catégoriels</li>
+          <li><strong>Valeur Calculée :</strong> Balance − Montants OOS (gap négatif = rupture)</li>
+          <li><strong>Jours de Stock :</strong> Balance ÷ Day_Target (avec fallback sur Montants OOS)</li>
+          <li><strong>Historique global :</strong> history.csv (taux rupture, POS count par jour)</li>
+          <li><strong>Historique routes :</strong> history_routes.csv (par route et par jour)</li>
+          <li><strong>Cache mtime :</strong> skip si les fichiers sources n'ont pas changé</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag">Pandas</span><span class="tag">openpyxl</span><span class="tag">KPIs</span>
+        </div>
+      </div>
+
+      <!-- dashboard -->
+      <div class="card">
+        <div class="mod-icon mod-purple">📊</div>
+        <h3>dashboard.py (WAR ROOM)</h3>
+        <p>Interface Streamlit dark-mode "War Room" pour visualisation temps réel.</p>
+        <ul>
+          <li><strong>Design :</strong> OLED #080C14, typographie Space Grotesk / Inter, accents or</li>
+          <li><strong>Filtres sidebar :</strong> Site, Sous-Zone, Route, Segment, Priorité</li>
+          <li><strong>KPIs :</strong> Taux OOS, Taux Rupture, Injection nécessaire, Jours de Stock</li>
+          <li><strong>War Room Classifier :</strong> agents classés CRITICAL / WARNING / STABLE</li>
+          <li><strong>Onglets :</strong> Vue Globale, Détail Agents, Récidivistes, Nouveaux POS, Historique, GPS</li>
+          <li><strong>Récidivistes :</strong> agents en rupture sur plusieurs cycles + export CSV</li>
+          <li><strong>Daily Trends :</strong> balance_history.csv → graphique Jours de Stock sur la durée</li>
+          <li><strong>Moteur prédictif :</strong> affichage predictive_plan.csv (temps estimé avant rupture)</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Altair</span>
+        </div>
+      </div>
+
+      <!-- hf_sync_manager -->
+      <div class="card">
+        <div class="mod-icon mod-orange">☁️</div>
+        <h3>hf_sync_manager.py</h3>
+        <p>Synchronisation intelligente vers Hugging Face Spaces.</p>
+        <ul>
+          <li><strong>Mode journée (05h–17h Cameroun) :</strong> upload uniquement les 331 agents prioritaires (priorite=oui)</li>
+          <li><strong>Mode soir/nuit :</strong> upload complet (tous agents)</li>
+          <li><strong>Upload folder :</strong> OOS1.xlsx, summary.xlsx, history.csv, history_routes.csv…</li>
+          <li><strong>Upload API séparé :</strong> reconciliation.csv/.xlsx avec filtrage mémoire (pas toucher le fichier disque)</li>
+          <li><strong>Redémarrage Space :</strong> optionnel via <code>include_code=True</code> (dashboard.py, requirements.txt…)</li>
+          <li><strong>Rate limit :</strong> détection 429 avec message explicite</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag">huggingface_hub</span><span class="tag">HfApi</span><span class="tag">BytesIO</span>
+        </div>
+      </div>
+
+      <!-- predictive_engine -->
+      <div class="card">
+        <div class="mod-icon mod-red">⚡</div>
+        <h3>predictive_engine.py</h3>
+        <p>Moteur prédictif : estimation du temps avant rupture totale.</p>
+        <ul>
+          <li><strong>Méthode :</strong> snapshots JSON entre cycles → vitesse de consommation (FCFA/heure)</li>
+          <li><strong>Seuil :</strong> alerte si autonomie &lt; 4 heures</li>
+          <li><strong>Sorties :</strong> Heure_Rupture_Estimee, Heures_Restantes, Vitesse_H</li>
+          <li><strong>Fichier :</strong> predictive_plan.csv mis à jour à chaque cycle</li>
+          <li><strong>Correction :</strong> UTC → UTC+1 (fuseau Cameroun) pour affichage correct</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag">Pandas</span><span class="tag">JSON</span><span class="tag">Time Series</span>
+        </div>
+      </div>
+
+      <!-- agent_mfs -->
+      <div class="card">
+        <div class="mod-icon mod-teal">🤖</div>
+        <h3>agent_mfs.py (MFSAgent)</h3>
+        <p>Générateur de rapport WhatsApp automatique à chaque cycle.</p>
+        <ul>
+          <li><strong>Analyse globale :</strong> POS totaux, taux rupture, tendance intra-journée (Δ par rapport au cycle précédent)</li>
+          <li><strong>Par cluster (Site) :</strong> taux rupture avec flèches tendance ↑↓</li>
+          <li><strong>Par segment :</strong> HVC / Standard (🔴🟡🟢 selon seuils)</li>
+          <li><strong>Par route :</strong> taux, nombre POS en rupture, tendance cycle-à-cycle</li>
+          <li><strong>Zones critiques :</strong> routes > 25% avec recommandation action terrain</li>
+          <li><strong>Top 5 HVC :</strong> High-Value Customers en rupture avec gap FCFA</li>
+          <li><strong>Prédictions :</strong> alertes &lt;4h intégrées depuis PredictiveEngine</li>
+          <li><strong>Archivage :</strong> cycle_history.csv (permanent) + pos_oos_history.csv</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag">Pandas</span><span class="tag">JSON</span><span class="tag">Analytics</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP DETAIL -->
+<div class="alt-section">
+<section id="whatsapp">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Système WhatsApp</h2>
+      <p>Deux composants : envoi automatique + bot interactif sur le même groupe</p>
+    </div>
+
+    <!-- Deux colonnes : Sender + Bot -->
+    <div class="g2 reveal" style="margin-bottom:2.5rem">
+      <div class="card">
+        <div class="mod-icon mod-green">📤</div>
+        <h3>whatsapp_sender.py — Envoi Automatique</h3>
+        <p>Pilote WhatsApp Web via <strong>Playwright</strong> (Chromium headless persistant) pour envoyer le rapport du MFSAgent après chaque cycle de traitement.</p>
+        <ul style="margin-top:0.8rem">
+          <li><strong>Session persistante :</strong> dossier <code>wa_session/</code> sauvegarde le profil Chromium ; le QR code n'est scanné qu'une seule fois</li>
+          <li><strong>First-time setup :</strong> <code>python whatsapp_sender.py --setup</code> ouvre le navigateur pour scan</li>
+          <li><strong>Test :</strong> <code>python whatsapp_sender.py --test</code> envoie un message de test</li>
+          <li><strong>Recherche groupe :</strong> multi-sélecteurs avec fallback (span[title], text-is, premier résultat de liste)</li>
+          <li><strong>Saisie multi-lignes :</strong> Shift+Enter pour les sauts de ligne dans WhatsApp</li>
+          <li><strong>Envoi :</strong> tentative bouton <code>span[data-icon='send']</code> puis fallback Enter</li>
+          <li><strong>Screenshot :</strong> capture <code>wa_last_sent.png</code> après envoi pour confirmation visuelle</li>
+          <li><strong>Anti-détection :</strong> <code>--disable-blink-features=AutomationControlled</code> + user-agent réaliste</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="mod-icon mod-purple">🎧</div>
+        <h3>whatsapp_bot.py — Bot Interactif</h3>
+        <p>Écoute en continu le groupe WhatsApp et répond automatiquement aux commandes des équipes terrain.</p>
+        <ul style="margin-top:0.8rem">
+          <li><strong>Polling :</strong> lecture du dernier message entrant toutes les 5 secondes</li>
+          <li><strong>Anti-boucle :</strong> ignore les messages commençant par 🤖 (ses propres réponses)</li>
+          <li><strong>Parsing multi-lignes :</strong> gère les messages de groupe (nom expéditeur + commande sur la même bulle)</li>
+          <li><strong>Stratégies de lecture :</strong> 5 sélecteurs CSS + fallback div[role='row'] pour résister aux changements WhatsApp</li>
+          <li><strong>Réponse rapide :</strong> &lt; 2 secondes entre réception et envoi de la réponse</li>
+          <li><strong>Session partagée :</strong> en production, le bot partage la même session Playwright que l'agent d'envoi (<code>auto_sync.py</code>)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Commandes détaillées -->
+    <div class="card reveal">
+      <h3 style="margin-bottom:1.2rem">📋 Commandes Disponibles (5 commandes)</h3>
+      <table class="cmd-table">
+        <thead>
+          <tr>
+            <th>Commande</th>
+            <th>Syntaxe exacte</th>
+            <th>Description</th>
+            <th>Données retournées</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="cmd-name">Status</span></td>
+            <td><code>Status</code> ou <code>Statut</code></td>
+            <td>Vue globale du parc à l'instant T</td>
+            <td>Total POS, Ruptures (nb + %), Tensions, Gap total FCFA, Top 3 routes critiques + lien dashboard</td>
+          </tr>
+          <tr>
+            <td><span class="cmd-name">Status Route_X</span></td>
+            <td><code>Status Route_8</code><br/><code>Status Route 12</code></td>
+            <td>Diagnostic détaillé d'une route spécifique</td>
+            <td>POS route, Ruptures, Tensions, Gap, liste POS en rupture (max 10 noms), alertes prédictives (&lt;4h) de cette route</td>
+          </tr>
+          <tr>
+            <td><span class="cmd-name">Status &lt;numéro&gt;</span></td>
+            <td><code>Status 237679422201</code></td>
+            <td>Fiche individuelle d'un agent POS (par son MSISDN)</td>
+            <td>Nom, route, Balance actuelle, Cible OOS, Statut (🔴🟠🟢), Gap FCFA à injecter, prédiction heure rupture</td>
+          </tr>
+          <tr>
+            <td><span class="cmd-name">Prediction</span></td>
+            <td><code>Prediction</code><br/><code>Predictions</code></td>
+            <td>Top 5 agents les plus proches de la rupture totale</td>
+            <td>Nom, Route, Heure estimée rupture, Heures restantes, Vitesse de consommation (FCFA/h)</td>
+          </tr>
+          <tr>
+            <td><span class="cmd-name">Help</span></td>
+            <td><code>Help</code> ou <code>Aide</code></td>
+            <td>Affiche la liste de toutes les commandes disponibles</td>
+            <td>Message d'aide formaté avec exemples de syntaxe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Exemples de messages -->
+    <div class="g2 reveal" style="margin-top:2rem">
+      <div class="card">
+        <h3 style="margin-bottom:0.5rem">💬 Exemple — Rapport Automatique (MFSAgent)</h3>
+        <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem">Envoyé automatiquement après chaque cycle de traitement</p>
+        <div class="alert-demo"><span class="wa-bot">🤖 MFS Support OOS - Cycle #7</span>
+<span class="wa-green">Bonjour l'équipe !</span> Diagnostic complet :
+
+<span class="wa-bold">📊 VUE D'ENSEMBLE</span>
+• POS analysés : <span class="wa-bold">529</span>
+• Taux de Rupture Global : <span class="wa-red">18.3%</span> <span class="wa-orange">(🔺 +2.1pts)</span>
+
+<span class="wa-bold">🌍 PAR CLUSTER</span>
+🌐 <span class="wa-bold">DOUALA NORD</span> : 22.4% <span class="wa-orange">[🔺 +3.1]</span>
+🌐 <span class="wa-bold">DOUALA SUD</span>  : 14.1%
+
+<span class="wa-bold">💎 PAR SEGMENT</span>
+🔴 <span class="wa-bold">HVC</span> : 21.5% <span class="wa-orange">[🔺 +1.8]</span>
+🟡 <span class="wa-bold">Standard</span> : 17.2%
+
+<span class="wa-bold">🗺️ ROUTES</span>
+🚨 Route_8 : <span class="wa-red">34.2%</span> (8/23 POS) <span class="wa-orange">[🔺+4.1pts]</span>
+⚠️ Route_12 : <span class="wa-orange">26.7%</span> (4/15 POS)
+🔹 Route_3  : 9.1% (2/22 POS)
+
+<span class="wa-bold">🚨 ZONES CRITIQUES</span>
+❗ Route_8 a 8 POS en rupture (34%). Action immédiate.
+
+<span class="wa-bold">💰 GAP FINANCIER</span>
+Injection nécessaire : <span class="wa-green">2.41M FCFA</span>
+
+<span class="wa-bold">💡 RECOMMANDATIONS</span>
+1. Priorité Route_8 : superviseur terrain + rechargement urgence
+2. Surveiller Route_12 : tendance +4.1pts
+3. Escalade : taux global dépasse seuil critique → War Room
+
+🔗 Dashboard : https://huggingface.co/spaces/mfspro16/stock-mfs-dashboard</div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:0.5rem">💬 Exemple — Réponse Bot Interactif</h3>
+        <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.5rem">Réponse automatique à une commande envoyée dans le groupe</p>
+        <div class="alert-demo"><span class="wa-sender">Jean-Baptiste Ngalle</span>
+Status Route_8
+
+<span class="wa-bot">🤖 POINT Route_8</span> (14:32)
+
+• POS : <span class="wa-bold">23</span>
+• 🔴 Ruptures : <span class="wa-red">8</span> (34.8%)
+• 🟠 Tensions  : 3
+• 💰 Gap : <span class="wa-orange">0.87M FCFA</span>
+
+🔴 <span class="wa-bold">POS EN RUPTURE :</span>
+• KENGNE Maurice (Bal: 12 450 F)
+• NGUIMFACK Bertrand (Bal: 0 F)
+• MEFFO Cyrille (Bal: 4 200 F)
+• TAMBA Séverin (Bal: 8 900 F)
+• FOMETHE Landry (Bal: 1 100 F)
+...
+
+⚡ <span class="wa-bold">ALERTES PRÉDICTIVES :</span>
+• KENGNE Maurice → à sec vers <span class="wa-red">15:45</span>
+• NGUIMFACK Bertrand → à sec vers <span class="wa-red">15:12</span>
+
+---
+<span class="wa-sender">Superviseur Terrain</span>
+Status 237679422201
+
+<span class="wa-bot">🤖 INFO POS</span> (14:33)
+
+📍 <span class="wa-bold">KENGNE Maurice</span>
+• Numéro   : 237679422201
+• Route    : Route_8
+• Balance  : <span class="wa-red">12 450 F</span>
+• Cible    : 285 000 F
+• Statut   : 🔴 <span class="wa-red">RUPTURE</span>
+• Gap      : <span class="wa-red">272 550 F</span> à injecter
+
+⚡ PRÉDICTION : À sec vers <span class="wa-red">15h45</span> (~1.2h)</div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+</div>
+
+<!-- TECH STACK -->
+<section id="tech">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Stack Technologique</h2>
+      <p>Technologies sélectionnées et leur rôle dans l'architecture</p>
+    </div>
+
+    <div class="g3 reveal">
+
+      <div class="card">
+        <h3>🐍 Python 3.12 — Backend Core</h3>
+        <div class="tech-grid">
+          <div class="tech-pill">pandas <span>Réconciliation & agrégation</span></div>
+          <div class="tech-pill">openpyxl <span>Lecture/écriture Excel</span></div>
+          <div class="tech-pill">playwright <span>Automatisation WhatsApp Web</span></div>
+          <div class="tech-pill">huggingface_hub <span>Upload API vers HF Spaces</span></div>
+          <div class="tech-pill">watchdog <span>Surveillance dossier source</span></div>
+          <div class="tech-pill">smtplib <span>Notifications email</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🌊 Streamlit — Dashboard</h3>
+        <div class="tech-grid">
+          <div class="tech-pill">Streamlit 1.x <span>Framework UI</span></div>
+          <div class="tech-pill">Plotly Express <span>Graphiques interactifs</span></div>
+          <div class="tech-pill">Altair <span>Visualisations déclaratives</span></div>
+          <div class="tech-pill">st.columns <span>Layout responsive</span></div>
+          <div class="tech-pill">st.download_button <span>Export CSV</span></div>
+          <div class="tech-pill">Custom CSS <span>OLED Dark theme</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>☁️ Infra & Intégrations</h3>
+        <div class="tech-grid">
+          <div class="tech-pill">Hugging Face Spaces <span>Hébergement Streamlit</span></div>
+          <div class="tech-pill">Git (squash push) <span>Déploiement sans cache WhatsApp</span></div>
+          <div class="tech-pill">secrets_mfs.py <span>Credentials isolés (gitignore)</span></div>
+          <div class="tech-pill">Playwright Chromium <span>WhatsApp Web persistent</span></div>
+          <div class="tech-pill">start_auto_sync.bat <span>Lancement Windows</span></div>
+          <div class="tech-pill">history CSV <span>Persistance historique</span></div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
+
+<!-- RÉSULTATS -->
+<div class="alt-section">
+<section id="resultats">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Résultats & Impact</h2>
+      <p>Valeur apportée au réseau d'agents MFS</p>
+    </div>
+
+    <div class="g4 reveal">
+      <div class="result-card">
+        <div class="result-val">−80%</div>
+        <div class="result-lbl">Temps de détection d'une rupture<br/>(vs manuel)</div>
+      </div>
+      <div class="result-card">
+        <div class="result-val">100%</div>
+        <div class="result-lbl">Automatisation de la collecte<br/>et réconciliation</div>
+      </div>
+      <div class="result-card">
+        <div class="result-val">&lt; 30s</div>
+        <div class="result-lbl">Délai alerte WhatsApp après<br/>dépôt du fichier</div>
+      </div>
+      <div class="result-card">
+        <div class="result-val">24/7</div>
+        <div class="result-lbl">Dashboard disponible<br/>sur Hugging Face</div>
+      </div>
+    </div>
+
+    <!-- Défis techniques -->
+    <div style="margin-top:3rem" class="g2 reveal">
+      <div class="card">
+        <h3>⚙️ Défis Techniques Résolus</h3>
+        <ul>
+          <li><strong>Squash push Git :</strong> <code>git commit-tree master^{tree} -p FETCH_HEAD</code> contourne le rejet des fichiers &gt;10 MB (cache WhatsApp wa_session/)</li>
+          <li><strong>Module cache Python :</strong> <code>auto_sync.py</code> doit être redémarré pour charger un nouveau <code>reconciliation_global.py</code> modifié</li>
+          <li><strong>Doublons MSISDN dans OOS :</strong> groupby + mean() pour numériques, first() pour catégoriels</li>
+          <li><strong>Day_Target vs OOS_Target :</strong> Day_Target est 9.6× plus grand que OOS_Target — utiliser le mauvais dénominateur produit des jours de stock artificiellement faux</li>
+          <li><strong>Sélecteurs WhatsApp :</strong> WhatsApp Web change ses attributs HTML fréquemment — stratégie multi-sélecteurs avec fallback</li>
+          <li><strong>balance_history.csv :</strong> retiré du tracking Git (<code>git rm --cached</code>) pour éviter l'écrasement de l'historique HF par les squash pushs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📈 Métriques du Tableau de Bord</h3>
+        <ul>
+          <li><strong>Taux OOS :</strong> % agents dont Balance &lt; Montants OOS (cible rupture)</li>
+          <li><strong>Taux Rupture :</strong> % agents dont Jours de Stock &lt; 0.7 (seuil 70%)</li>
+          <li><strong>Injection nécessaire :</strong> Σ |Valeur Calculée| pour les agents en rupture (FCFA)</li>
+          <li><strong>Jours de Stock :</strong> Balance ÷ Day_Target (couverture en jours)</li>
+          <li><strong>Récidivistes :</strong> agents en rupture sur ≥ 2 cycles consécutifs</li>
+          <li><strong>Nouveaux POS actifs :</strong> agents dans cycle_history qui ont une transaction dans summary.xlsx</li>
+          <li><strong>Tendance journalière :</strong> évolution du taux rupture global cycle par cycle (intra-day)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div style="margin-top:3rem" class="reveal">
+      <div class="card">
+        <h3 style="margin-bottom:2rem">🗓️ Chronologie du Développement</h3>
+        <div class="tl">
+          <div class="tl-item">
+            <div class="tl-date">Phase 1</div>
+            <div class="tl-title">Collecte & Réconciliation</div>
+            <div class="tl-body">transaction_processor.py → summary.xlsx, réconciliation_global.py, exports CSV/XLSX, logique Day_Target / OOS_Target.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Phase 2</div>
+            <div class="tl-title">Dashboard WAR ROOM</div>
+            <div class="tl-body">Streamlit dark theme OLED, KPIs temps réel, war room classifier, onglets par thématique, export CSV récidivistes.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Phase 3</div>
+            <div class="tl-title">Automatisation WhatsApp</div>
+            <div class="tl-body">whatsapp_sender.py (Playwright), session persistante, MFSAgent avec rapport structuré, archivage cycle_history.csv.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Phase 4</div>
+            <div class="tl-title">Bot Interactif + Moteur Prédictif</div>
+            <div class="tl-body">whatsapp_bot.py (5 commandes), predictive_engine.py (snapshots + vitesse consommation), alertes &lt;4h.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Phase 5</div>
+            <div class="tl-title">Sync Hugging Face & Optimisations</div>
+            <div class="tl-body">hf_sync_manager.py (filtrage horaire prioritaires), squash push Git, retrait balance_history.csv du tracking, fixes mtime cache.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">TEDEFO GUY RICHARD</div>
+  <div class="footer-email">richardtedefo3@gmail.com</div>
+  <div style="margin-bottom:1.5rem">
+    <span class="tag">Python</span>
+    <span class="tag">Streamlit</span>
+    <span class="tag tag-blue">Playwright</span>
+    <span class="tag tag-green">WhatsApp Bot</span>
+    <span class="tag tag-purple">Hugging Face</span>
+    <span class="tag">Pandas</span>
+    <span class="tag">Plotly</span>
+  </div>
+  <div class="footer-copy">Projet WAR ROOM MFS — Système de gestion de float Mobile Money · Cameroun</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('revealed'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
