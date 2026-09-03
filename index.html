@@ -397,6 +397,7 @@
       <li><a href="#whatsapp">WhatsApp</a></li>
       <li><a href="#tech">Stack</a></li>
       <li><a href="#resultats">Résultats</a></li>
+      <li><a href="#autres-projets">Autres Projets</a></li>
       <li class="nav-live"><a href="https://huggingface.co/spaces/mfspro16/stock-mfs-dashboard" target="_blank">🚀 Dashboard Live</a></li>
     </ul>
   </div>
@@ -994,6 +995,151 @@ Status 237679422201
   </div>
 </section>
 </div>
+
+<!-- AUTRES PROJETS -->
+<section id="autres-projets">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Autres Projets Réalisés</h2>
+      <p>Écosystème d'applications et de pipelines d'automatisation développés autour de MFS</p>
+    </div>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.5rem;">
+      ⚙️ Automatisations & Pipelines de Données (2025)
+    </h3>
+    <div class="g2 reveal" style="margin-bottom:3.5rem">
+
+      <div class="card">
+        <div class="mod-icon mod-purple">🤖</div>
+        <h3>AI Chat & Qualification de Leads</h3>
+        <p>Automatise l'interaction client, la présentation des offres MFS Home et l'enregistrement automatique des commandes.</p>
+        <ul>
+          <li>Workflow n8n avec agent IA LangChain guidant le client et générant un payload validé</li>
+          <li>Google Apps Script : insertion Google Sheets + notification email temps réel</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-purple">Next.js</span><span class="tag tag-purple">OpenAI/Gemini</span><span class="tag tag-purple">n8n</span><span class="tag tag-purple">Google Sheets</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mod-icon mod-blue">🔄</div>
+        <h3>Pipeline ETL Supabase → SQL Server (DW_MFS)</h3>
+        <p>Extraction récurrente des transactions et profils depuis Supabase vers l'entrepôt local DW_MFS, avec alertes email.</p>
+        <ul>
+          <li>Orchestrateur Node.js : migration + insertion sqlcmd + rapport Nodemailer</li>
+          <li>Exports CSV quotidiens et dumps SSMS planifiés via tâches Windows</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-blue">Node.js</span><span class="tag tag-blue">Supabase API</span><span class="tag tag-blue">SQL Server</span><span class="tag tag-blue">Nodemailer</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mod-icon mod-gold">📊</div>
+        <h3>Dashboard CRM Branded Store MFS</h3>
+        <p>Automatise la mise à jour des KPIs commerciaux (volume, PayGo/DTR, WoW, MoM) et le rafraîchissement du tableau HTML.</p>
+        <ul>
+          <li>Menu interactif (.bat) : Supabase, SQL Server local ou dump existant</li>
+          <li>Calcul WoW/MoM en Python, génération de <code>data.js</code> + rapports Excel</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Node.js</span><span class="tag">HTML/JS</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mod-icon mod-orange">☁️</div>
+        <h3>Pipeline Cloud & Dashboard Streamlit (Sync HF)</h3>
+        <p>Nettoie et synchronise les données SQL Server vers un Dataset Hugging Face pour alimenter une app Streamlit.</p>
+        <ul>
+          <li>SQLAlchemy/pyodbc + inférence d'agence pour les agents non assignés</li>
+          <li>Compression Parquet + upload automatique via <code>huggingface_hub.HfApi</code></li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-green">Python</span><span class="tag tag-green">SQLAlchemy</span><span class="tag tag-green">Parquet</span><span class="tag tag-green">Hugging Face</span><span class="tag tag-green">Streamlit</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mod-icon mod-teal">🛠️</div>
+        <h3>Ingestion & Transformation de Données Terrain (MD & POS)</h3>
+        <p>Transforme les exports bruts (activités journalières, points de vente, GPS) en structures exploitables SQL Server.</p>
+        <ul>
+          <li>Décodage d'exports CSV avec blocs JSON imbriqués, typage dynamique des colonnes</li>
+          <li>Génération automatique des scripts DDL/DML (CREATE TABLE, TRUNCATE, INSERT)</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-red">Node.js</span><span class="tag tag-red">SQL DDL/DML</span><span class="tag tag-red">JSON Parsing</span>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.5rem;">
+      🧩 Applications & Plateformes MFS
+    </h3>
+    <div class="g2 reveal">
+
+      <div class="card">
+        <div class="mod-icon mod-blue">🧾</div>
+        <h3>pos-transactions-hub</h3>
+        <p>Centralise, traite et suit le flux complet des transactions issues des points de vente (POS).</p>
+        <ul>
+          <li>Ingestion et normalisation des transactions terrain (terminal, montant, heure, agent, statut)</li>
+          <li>Réconciliation contre les données de paiement/compensation pour détecter les écarts de caisse</li>
+          <li>Tableau de bord temps réel (volume, CA, taux de réussite) + rapports d'audit exportables</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-blue">POS</span><span class="tag tag-blue">Réconciliation</span><span class="tag tag-blue">Reporting</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mod-icon mod-green">📍</div>
+        <h3>FieldForce Hub</h3>
+        <p>Centre de gestion et de supervision pour les équipes terrain (agents, techniciens, commerciaux).</p>
+        <ul>
+          <li>Affectation de zones géographiques, itinéraires et tâches aux agents</li>
+          <li>Collecte de données terrain en temps réel (visites, nouveaux marchands, incidents, photos)</li>
+          <li>Géolocalisation, suivi de progression et consolidation des KPIs d'activité</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-green">Terrain</span><span class="tag tag-green">Géolocalisation</span><span class="tag tag-green">KPIs</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mod-icon mod-purple">🔌</div>
+        <h3>mfs-digital-connect</h3>
+        <p>Passerelle d'intégration et de numérisation pour l'écosystème MFS (Mobile Financial Services).</p>
+        <ul>
+          <li>Interconnexion des services financiers numériques (wallets, API de paiement, banque)</li>
+          <li>Parcours d'onboarding/activation, vérification d'identité, association compte/téléphone</li>
+          <li>Routage des requêtes, journalisation et sécurisation des sessions/tokens</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-purple">Intégration</span><span class="tag tag-purple">Onboarding</span><span class="tag tag-purple">Sécurité</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="mod-icon mod-red">🗂️</div>
+        <h3>crm-mfs</h3>
+        <p>Système de gestion de la relation client (CRM) dédié à la plateforme de services financiers.</p>
+        <ul>
+          <li>Fiche client/marchand 360° (coordonnées, historique, statut, pièces KYC)</li>
+          <li>Gestion du support et des incidents (échecs de transfert, erreurs, réinitialisations)</li>
+          <li>Suivi commercial, pipeline et analytique/segmentation de la clientèle</li>
+        </ul>
+        <div style="margin-top:1rem">
+          <span class="tag tag-red">CRM</span><span class="tag tag-red">Support</span><span class="tag tag-red">Analytique</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
